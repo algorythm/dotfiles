@@ -24,3 +24,17 @@ function get_os()
 
     return $os
 }
+
+function clean_rc_files()
+{
+    local here=$(cd `dirname $0` && pwd)
+    string="source $here/setup.sh"
+
+    if [ -f $HOME/.zshrc ]; then
+        grep -v "source $here/setup.sh" $HOME/.bashrc > $HOME/.bashrc
+    fi
+
+    if [ -f $HOME/.zshrc ]; then
+        grep -v "source $here/setup.sh" $HOME/.zshrc > $HOME/.zshrc
+    fi
+}
