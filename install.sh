@@ -37,6 +37,9 @@ echo;
 
 bot "I'll start by checking out which shell you're using."
 
+source_here="source $HERE/setup.sh"
+set_dotpath="DOTFILES_PATH=$DOTFILES_PATH"
+
 # If ZSH is used, auto source setup.sh in .zshrc
 if [[ $SHELL == "/bin/zsh" ]]; then
     info "Using ZSH i see... Pretty neat dude!" 
@@ -56,22 +59,19 @@ if [[ $SHELL == "/bin/zsh" ]]; then
         fi
     fi
 
-    s="source $HERE/setup.sh"
-
     if ! grep -qF "$s" ~/.zshrc; then
         action "Adding automatic sourcing to $HOME/.zshrc"
-        echo "DOTFILES_PATH=$DOTFILES_PATH" >> $HOME/.zshrc
-        echo $s >> $HOME/.zshrc
+        echo $set_dotpath >> $HOME/.zshrc
+        echo $source_here >> $HOME/.zshrc
     fi
 # If ZSH is not used, auto source setup.sh in .bashrc
 else
     info "You are not using ZSH."
-    s="source $HERE/setup.sh"
 
     if ! grep -qF "$s" ~/.bashrc; then
         action "Adding automatic sourcing to $HOME/.bashrc"
-        echo "DOTFILES_PATH=$DOTFILES_PATH" >> $HOME/.bashrc
-        echo $s >> $HOME/.bashrc
+        echo $set_dotpath >> $HOME/.bashrc
+        echo $source_here >> $HOME/.bashrc
     fi
 fi
 
