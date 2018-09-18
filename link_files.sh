@@ -1,6 +1,6 @@
 #!/bin/usr/env bash
 HERE=$(cd `dirname $0` && pwd)
-files=$(ls $HERE/dotfiles)
+files=$(ls $HERE/files_to_link)
 
 source $HERE/print.sh
 
