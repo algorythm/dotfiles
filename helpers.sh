@@ -27,14 +27,15 @@ function get_os()
 
 function clean_rc_files()
 {
-    local here=$(cd `dirname $0` && pwd)
-    string="source $here/setup.sh"
+    string="source $DOTFILES_PATH/setup.sh"
 
     if [ -f $HOME/.zshrc ]; then
-        grep -v "source $here/setup.sh" $HOME/.bashrc > bashrc && mv bashrc $HOME/.bashrc
+        grep -v "source $DOTFILES_PATH/setup.sh" $HOME/.bashrc > bashrc && mv bashrc $HOME/.bashrc
+        grep -v "DOTFILES_PATH=$DOTFILES_PATH" $HOME/.bashrc > bashrc && mv bashrc $HOME/.bashrc
     fi
 
     if [ -f $HOME/.zshrc ]; then
-        grep -v "source $here/setup.sh" $HOME/.zshrc > zshrc && mv zshrc $HOME/.zshrc
+        grep -v "source $DOTFILES_PATH/setup.sh" $HOME/.zshrc > zshrc && mv zshrc $HOME/.zshrc
+        grep -v "DOTFILES_PATH=$DOTFILES_PATH" $HOME/.zshrc > zshrc && mv zshrc $HOME/.zshrc
     fi
 }

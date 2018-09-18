@@ -5,6 +5,8 @@ source $HERE/print.sh
 source $HERE/helpers.sh
 source $HERE/link_files.sh
 
+DOTFILES_PATH=$HERE
+
 # Passing arguments
 POSITIONAL=()
 while [[ $# -gt 0 ]]; do
@@ -58,6 +60,7 @@ if [[ $SHELL == "/bin/zsh" ]]; then
 
     if ! grep -qF "$s" ~/.zshrc; then
         action "Adding automatic sourcing to $HOME/.zshrc"
+        echo "DOTFILES_PATH=$DOTFILES_PATH" >> $HOME/.zshrc
         echo $s >> $HOME/.zshrc
     fi
 # If ZSH is not used, auto source setup.sh in .bashrc
@@ -67,6 +70,7 @@ else
 
     if ! grep -qF "$s" ~/.bashrc; then
         action "Adding automatic sourcing to $HOME/.bashrc"
+        echo "DOTFILES_PATH=$DOTFILES_PATH" >> $HOME/.bashrc
         echo $s >> $HOME/.bashrc
     fi
 fi
@@ -76,4 +80,3 @@ echo;
 bot "I will now start configuring your system."
 action "Linking files"
 link
-

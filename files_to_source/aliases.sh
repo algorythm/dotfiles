@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-
-HERE=$(cd `dirname $0` && pwd)
-source $HERE/print.sh
-source $HERE/helpers.sh
+source $DOTFILES_PATH/helpers.sh
 
 # Confirm before removing, replacing or overwriting files
 alias rm="rm -i"

@@ -16,5 +16,5 @@ Thumbs.db
 # Visual Studio Code
 .vscode
 
-bashrc
-zshrc
+./bashrc
+./zshrc

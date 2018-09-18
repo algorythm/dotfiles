@@ -1,19 +1,16 @@
 #!/bin/usr/env bash
-HERE=$(cd `dirname $0` && pwd)
-files=$(ls $HERE/files_to_link)
-
-source $HERE/print.sh
+source $DOTFILES_PATH/print.sh
 
 function link()
 {
     # Go to the dotfiles directory
-    cd $HERE/files_to_link
+    cd $DOTFILES_PATH/files_to_link
 
     for file in *; do
         if [ -f ~/.$file ]; then
             warning "\"$file\" already exist in your home directory."
         else
-            ln -s $HERE/files_to_link/$file $HOME/.$file
+            ln -s $DOTFILES_PATH/files_to_link/$file $HOME/.$file
         fi
     done
 
@@ -26,7 +23,7 @@ function clean_link_files()
     running "Cleaning all linked files"
 
     # Go to the dotfiles directory
-    cd $HERE/files_to_link
+    cd $DOTFILES_PATH/files_to_link
 
     for file in *; do
         if [ -L ~/.$file ]; then
