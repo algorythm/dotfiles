@@ -31,10 +31,10 @@ function clean_rc_files()
     string="source $here/setup.sh"
 
     if [ -f $HOME/.zshrc ]; then
-        grep -v "source $here/setup.sh" $HOME/.bashrc > $HOME/.bashrc
+        grep -v "source $here/setup.sh" $HOME/.bashrc > bashrc && mv bashrc $HOME/.bashrc
     fi
 
     if [ -f $HOME/.zshrc ]; then
-        grep -v "source $here/setup.sh" $HOME/.zshrc > $HOME/.zshrc
+        grep -v "source $here/setup.sh" $HOME/.zshrc > zshrc && mv zshrc $HOME/.zshrc
     fi
 }

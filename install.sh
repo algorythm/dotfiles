@@ -36,7 +36,7 @@ echo;
 bot "I'll start by checking out which shell you're using."
 
 # If ZSH is used, auto source setup.sh in .zshrc
-if [[ $SHELL="/bin/zsh" ]]; then
+if [[ $SHELL == "/bin/zsh" ]]; then
     info "Using ZSH i see... Pretty neat dude!" 
     # sleep 1
 
@@ -76,3 +76,4 @@ echo;
 bot "I will now start configuring your system."
 action "Linking files"
 link
+

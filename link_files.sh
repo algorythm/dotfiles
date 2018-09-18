@@ -30,7 +30,7 @@ function clean_link_files()
 
     for file in *; do
         if [ -L ~/.$file ]; then
-            rm $HOME/$file
+            rm $HOME/.$file
         fi
     done
 
