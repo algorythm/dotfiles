@@ -36,9 +36,11 @@ function install_powerlevel()
         fi
     fi
 
-    running "Cloning powerlevel to your .oh-my-zsh folder."
-    git clone --quiet https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-    ok
+    if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
+        running "Cloning powerlevel to your .oh-my-zsh folder."
+        git clone --quiet https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+        ok
+    fi
 }
 
 install_powerlevel
