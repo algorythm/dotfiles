@@ -6,7 +6,6 @@
 #     echo "You're not on a server"
 # fi
 
-
 if [[ $SHELL="/bin/bash" ]]; then
     source $DOTFILES_PATH/files_to_source/bash_prompt.sh
 fi

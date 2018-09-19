@@ -47,6 +47,8 @@ if [[ $SHELL == "/bin/zsh" ]]; then
 
     echo; 
 
+    source powerlevel_installation.sh
+
     if [ -f $HOME/.zshrc ]; then
         bot "You already have a .zshrc file at home."
         if questionN "Do you want to override your existing configuration (will backup)"
@@ -54,6 +56,14 @@ if [[ $SHELL == "/bin/zsh" ]]; then
             filename="$HOME/.zshrc.$(date +%s).old"
             action "Backing up as $filename"
             mv $HOME/.zshrc $HOME/$filename
+
+            if [ -d $HOME/.oh-my-zsh/custom/themes/powerlevel9k ]; then
+                info "Using powerlevel configuration"
+                mv $DOTFILES_PATH/other_files/zshrc-powerlevel $USER/.zshrc
+            else
+                info "Using standard configuration"
+                mv $DOTFILES_PATH/other_files/zshrc $USER/.zshrc
+            fi
         else
             bot "I feel sorry for you..."
         fi
@@ -64,6 +74,7 @@ if [[ $SHELL == "/bin/zsh" ]]; then
         echo $set_dotpath >> $HOME/.zshrc
         echo $source_here >> $HOME/.zshrc
     fi
+
 # If ZSH is not used, auto source setup.sh in .bashrc
 else
     info "You are not using ZSH."
