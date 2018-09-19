@@ -1,0 +1,16 @@
+set number
+" Show existing tab with 2 spaces width
+set tabstop=2
+" When indenting with '>', use 2 spaces
+set shiftwidth=2
+" ON pressing tab, insert 2 spaces
+set expandtab
+set smarttab
+" set auto indentation
+set ai
+
+vnoremap > >gv
+vnoremap < <gv
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
+imap jj <Esc>

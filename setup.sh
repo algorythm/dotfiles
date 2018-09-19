@@ -11,5 +11,8 @@ if [[ $SHELL="/bin/bash" ]]; then
     source $DOTFILES_PATH/files_to_source/bash_prompt.sh
 fi
 
+# Set default text editor to vim
+update-alternatives --set editor /usr/bin/vim.basic
+
 source $DOTFILES_PATH/files_to_source/aliases.sh
 source $DOTFILES_PATH/files_to_source/functions.sh

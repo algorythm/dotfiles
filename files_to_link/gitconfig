@@ -1,0 +1,44 @@
+[user]
+    name = algorythm
+    email = anders@wiberg.tech
+[color]
+    ui = true
+    diff = auto
+    status = auto
+    branch = auto
+[branch]
+    autosetuprebase = always
+[alias]
+    aa = add -Av
+    a = add -v
+    ap = add --patch
+    ci = commit
+    b = branch
+    br = branch
+    co = checkout
+    mt = mergetool
+    dt = difftool
+    st = status
+    stm = status --short
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    cp = cherry-pick
+    ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    dd = diff --color-words --ignore-space-change
+    p = push
+    po = push -u origin
+    aac = !git add -Av && git commit
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    publish = "!git push -u origin :$(git branch-name)"
+
+[merge]
+    tool = intellij
+[mergetool "intellij"]
+    cmd = idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
+[diff]
+    tool = intellij
+[difftool "intellij"]
+    cmd = idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+
+[core]
+	editor = vim
