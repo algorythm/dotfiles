@@ -11,7 +11,6 @@ function confirm_sudo()
 function get_os()
 {
     local uname=$(uname)
-    echo $uname
 
     if [[ $uname == "Linux" ]]; then
         os=$(lsb_release -i -s)
@@ -21,8 +20,6 @@ function get_os()
         echo "Unidentified operating system: $uname"
         os=NULL
     fi
-
-    return $os
 }
 
 function clean_rc_files()
