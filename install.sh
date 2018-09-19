@@ -17,7 +17,7 @@ while [[ $# -gt 0 ]]; do
         running "Removing sourcing from rc files"
         clean_rc_files
         ok
-        rimmomg "Cleaning up linked files"
+        running "Cleaning up linked files"
         clean_link_files
         ok
         bot "Finished! You need to manually restore the .zshrc file if that is wanted."
@@ -59,7 +59,7 @@ if [[ $SHELL == "/bin/zsh" ]]; then
         fi
     fi
 
-    if ! grep -qF "$s" ~/.zshrc; then
+    if ! grep -qF "$source_here" ~/.zshrc; then
         action "Adding automatic sourcing to $HOME/.zshrc"
         echo $set_dotpath >> $HOME/.zshrc
         echo $source_here >> $HOME/.zshrc
@@ -68,7 +68,7 @@ if [[ $SHELL == "/bin/zsh" ]]; then
 else
     info "You are not using ZSH."
 
-    if ! grep -qF "$s" ~/.bashrc; then
+    if ! grep -qF "$source_here" ~/.bashrc; then
         action "Adding automatic sourcing to $HOME/.bashrc"
         echo $set_dotpath >> $HOME/.bashrc
         echo $source_here >> $HOME/.bashrc
