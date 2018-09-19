@@ -29,10 +29,12 @@ function clean_rc_files()
     if [ -f $HOME/.bashrc ]; then
         grep -v "DOTFILES_PATH=$DOTFILES_PATH" $HOME/.bashrc > bashrc && mv bashrc $HOME/.bashrc
         grep -v "source $DOTFILES_PATH/setup.sh" $HOME/.bashrc > bashrc && mv bashrc $HOME/.bashrc
+        rm bashrc
     fi
 
     if [ -f $HOME/.zshrc ]; then
         grep -v "DOTFILES_PATH=$DOTFILES_PATH" $HOME/.zshrc > zshrc && mv zshrc $HOME/.zshrc
         grep -v "source $DOTFILES_PATH/setup.sh" $HOME/.zshrc > zshrc && mv zshrc $HOME/.zshrc
+        rm zshrc
     fi
 }
