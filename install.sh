@@ -59,14 +59,14 @@ if [[ $SHELL == "/bin/zsh" ]]; then
         then
             filename="$HOME/.zshrc.$(date +%s).old"
             action "Backing up as $filename"
-            mv $HOME/.zshrc $HOME/$filename
+            mv $HOME/.zshrc $filename
 
             if [ -d $HOME/.oh-my-zsh/custom/themes/powerlevel9k ]; then
                 info "Using powerlevel configuration"
-                mv $DOTFILES_PATH/other_files/zshrc-powerlevel $USER/.zshrc
+                mv $DOTFILES_PATH/other_files/zshrc-powerlevel $HOME/.zshrc
             else
                 info "Using standard configuration"
-                mv $DOTFILES_PATH/other_files/zshrc $USER/.zshrc
+                mv $DOTFILES_PATH/other_files/zshrc $HOME/.zshrc
             fi
         else
             bot "I feel sorry for you..."
