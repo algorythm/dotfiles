@@ -11,7 +11,10 @@ if [[ $SHELL="/bin/bash" ]]; then
 fi
 
 # Set default text editor to vim
-update-alternatives --set editor /usr/bin/vim.basic
+unamestr=$(uname)
+if [[ $uname == "Linux" ]]; then
+    update-alternatives --set editor /usr/bin/vim.basic
+fi
 
 source $DOTFILES_PATH/files_to_source/aliases.sh
 source $DOTFILES_PATH/files_to_source/functions.sh
