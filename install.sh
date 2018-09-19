@@ -33,6 +33,10 @@ set -- "${POSITIONAL[@]}"
 
 bot "This is the automated dotfiles setup. I'll get things configured for you mate."
 
+running "Updating submodules"
+git submodule update --quiet --init --recursive
+ok
+
 echo;
 
 bot "I'll start by checking out which shell you're using."
