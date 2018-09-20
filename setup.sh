@@ -17,4 +17,5 @@ if [[ $uname == "Linux" ]]; then
 fi
 
 source $DOTFILES_PATH/files_to_source/aliases.sh
+source $DOTFILES_PATH/files_to_source/exports.sh
 source $DOTFILES_PATH/files_to_source/functions.sh
