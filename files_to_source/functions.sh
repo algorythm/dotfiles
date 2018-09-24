@@ -31,3 +31,14 @@ function reload()
 
     source $HOME/.$1rc
 }
+
+# Finds the md5sum of a directory, usage: md5dir <folder>
+function md5dir()
+{
+    if [ ! "$(command -v md5sum)" ]; then
+        echo "md5sum is not installed on your system."
+        return;
+    fi
+
+    find $1 -type f -exec md5sum {} \; | sort -k 2 | md5sum
+}
