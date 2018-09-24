@@ -36,7 +36,7 @@ bot "This is the automated dotfiles setup. I'll get things configured for you ma
 # git submodule update --quiet --init --recursive
 # ok
 running "Updating submodule sshkeys"
-git submodule update --quiet --init --remote sshkeys && ok || error && exit 1
+git submodule update --quiet --init --remote sshkeys && ok || error
 
 echo;
 
@@ -53,7 +53,7 @@ if [[ $SHELL == "/bin/zsh" ]]; then
     echo; 
     
     running "Updating submodule PowerlineFonts"
-    git submodule update --quiet --init --remote PowerlineFonts && ok || error && exit 1
+    git submodule update --quiet --init --remote PowerlineFonts && ok || error
     
     source powerlevel_installation.sh
 
