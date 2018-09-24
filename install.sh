@@ -32,9 +32,11 @@ set -- "${POSITIONAL[@]}"
 
 bot "This is the automated dotfiles setup. I'll get things configured for you mate."
 
-running "Updating submodules"
-git submodule update --quiet --init --recursive
-ok
+# running "Updating submodules"
+# git submodule update --quiet --init --recursive
+# ok
+running "Updating submodule sshkeys"
+git submodule update --quiet --init --remote sshkeys && ok || error && exit 1
 
 echo;
 
@@ -49,7 +51,10 @@ if [[ $SHELL == "/bin/zsh" ]]; then
     # sleep 1
 
     echo; 
-
+    
+    running "Updating submodule PowerlineFonts"
+    git submodule update --quiet --init --remote PowerlineFonts && ok || error && exit 1
+    
     source powerlevel_installation.sh
 
     if [ -f $HOME/.zshrc ]; then
