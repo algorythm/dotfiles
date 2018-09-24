@@ -30,7 +30,6 @@ done
 # Restore positional parameters
 set -- "${POSITIONAL[@]}" 
 
-
 bot "This is the automated dotfiles setup. I'll get things configured for you mate."
 
 running "Updating submodules"
@@ -95,3 +94,6 @@ echo;
 bot "I will now start configuring your system."
 action "Linking files"
 link
+
+running "Adding public keys to authorized_keys file."
+source $DOTFILES_PATH/sshkeys/install_keys.sh --username algorythmic --silent && ok || error
