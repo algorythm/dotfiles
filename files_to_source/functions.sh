@@ -40,5 +40,5 @@ function md5dir()
         return;
     fi
 
-    find $1 -type f -exec md5sum {} \; | sort -k 2 | md5sum
+    find $1 -type f -exec md5sum {} \; | sort -k 2 | md5sum | awk '{print $1}'
 }
