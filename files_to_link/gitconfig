@@ -28,7 +28,11 @@
     po = push -u origin
     aac = !git add -Av && git commit
     branch-name = "!git rev-parse --abbrev-ref HEAD"
-    publish = "!git push -u origin :$(git branch-name)"
+    rmbr = "!f() { \
+        git push origin --delete "$@"; \
+        git branch -d "$@"; \
+    }; f"
+    publish = "!git push -u origin $(git branch-name)"
 
 [merge]
     tool = intellij
