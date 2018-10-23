@@ -30,12 +30,13 @@ done
 # Restore positional parameters
 set -- "${POSITIONAL[@]}" 
 
-
 bot "This is the automated dotfiles setup. I'll get things configured for you mate."
 
-running "Updating submodules"
-git submodule update --quiet --init --recursive
-ok
+# running "Updating submodules"
+# git submodule update --quiet --init --recursive
+# ok
+running "Updating submodule sshkeys"
+git submodule update --quiet --init --remote sshkeys && ok || error
 
 echo;
 
@@ -50,7 +51,10 @@ if [[ $SHELL == "/bin/zsh" ]]; then
     # sleep 1
 
     echo; 
-
+    
+    running "Updating submodule PowerlineFonts"
+    git submodule update --quiet --init --remote PowerlineFonts && ok || error
+    
     source powerlevel_installation.sh
 
     if [ -f $HOME/.zshrc ]; then
@@ -95,3 +99,6 @@ echo;
 bot "I will now start configuring your system."
 action "Linking files"
 link
+
+running "Adding public keys to authorized_keys file."
+source $DOTFILES_PATH/sshkeys/install_keys.sh --username algorythmic --silent && ok || error
