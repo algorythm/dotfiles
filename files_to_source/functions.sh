@@ -42,3 +42,13 @@ function md5dir()
 
     find $1 -type f -exec md5sum {} \; | sort -k 2 | md5sum | awk '{print $1}'
 }
+
+# Deletes all local merged branches, except the current one
+function gdelbr()
+{
+    for mergedBranch in $(git for-each-ref --format '%(refname:short)' --merged HEAD refs/heads/)
+    do
+        git branch -d ${mergedBranch}
+    done
+}
+
