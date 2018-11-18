@@ -21,6 +21,13 @@ alias la="ls -alh"
 # alias gdd="git diff --color-words --ignore-space-change"
 [[ "$(command -v php)" ]] && alias pa="php artisan"
 [[ "$(command -v nvim)" ]] && alias vim="nvim"
+
+# Delete all local merged branches
+for mergedBranch in $(git for-each-ref --format '%(refname:short)' --merged HEAD refs/heads/)
+do
+    git branch -d ${mergedBranch}
+done
+
 # alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=/$HOME"
 # alias reload="source ~/.zshrc"
 
