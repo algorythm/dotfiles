@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-source $DOTFILES_PATH/print.sh
+if [ -z {DOTFILES_PATH} ];
+    source ./print.sh;
+else
+    source $DOTFILES_PATH/print.sh
+fi
 
 function install_powerlevel()
 {
@@ -41,6 +45,11 @@ function install_powerlevel()
         git clone --quiet https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
         ok
     fi
+    info "Installing auto suggestions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    info "Installing syntax highlighting"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 }
 
 install_powerlevel

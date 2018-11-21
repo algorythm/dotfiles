@@ -8,14 +8,19 @@ POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs nvm virtualenv)
 
 # # Disable dir/git icons
-POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON=''
+POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_FOLDER_ICON=''
-# #### POWERLEVEL9K ####
 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git)
+plugins=(
+git
+docker
+zsh-autosuggestions
+zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
