@@ -14,7 +14,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias tt="tmux a -t 0 || tmux"
-alias per="open -a postman"
+alias per="open -a postman.app"
 
 alias ll="ls -lh"
 alias la="ls -alh"
