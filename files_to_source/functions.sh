@@ -52,3 +52,30 @@ function gdelbr()
     done
 }
 
+IOS_EMULATOR="apple_ios_simulator"
+ANDROID_EMULATOR="Pixel_XL_API_28"
+
+function emulator {
+	if [ -z $1 ]; then
+		echo "Usage: $0 <ios|android>"
+		exit -1
+	fi
+
+	if ! [ -x "$(command -v flutter)" ]; then
+		echo "Flutter is not installed on this computer"
+		exit -1
+	fi
+
+	if [ "$1" == "ios" ]; then
+		EMULATOR=$IOS_EMULATOR
+	elif [ "$1" == "android" ]; then
+		EMULATOR=$ANDROID_EMULATOR
+	else
+		echo "No valid emulator has been selected."
+		exit -1
+	fi
+
+	echo "Launching emulator: $EMULATOR..."
+	flutter emulators --launch $EMULATOR
+	echo "Done."
+}
