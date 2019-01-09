@@ -52,10 +52,10 @@ function gdelbr()
     done
 }
 
-IOS_EMULATOR="apple_ios_simulator"
-ANDROID_EMULATOR="Pixel_XL_API_28"
 
 function emulator {
+    IOS_EMULATOR="apple_ios_simulator"
+    ANDROID_EMULATOR="Pixel_XL_API_28"
 	if [ -z $1 ]; then
 		echo "Usage: $0 <ios|android>"
 		exit -1
@@ -66,9 +66,9 @@ function emulator {
 		exit -1
 	fi
 
-	if [ "$1" == "ios" ]; then
+	if [ "$1" = "ios" ]; then
 		EMULATOR=$IOS_EMULATOR
-	elif [ "$1" == "android" ]; then
+	elif [ "$1" = "android" ]; then
 		EMULATOR=$ANDROID_EMULATOR
 	else
 		echo "No valid emulator has been selected."
@@ -79,3 +79,13 @@ function emulator {
 	flutter emulators --launch $EMULATOR
 	echo "Done."
 }
+
+function randompass {
+	if [ -z $1 ]; then
+		echo "Usage $0 <length of password>"
+		exit -1
+	fi
+
+	strings /dev/urandom | grep -o '[[:alnum:]]' | head -n $1 | tr -d '\n'; echo
+}
+
