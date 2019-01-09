@@ -80,10 +80,10 @@ function emulator {
 	echo "Done."
 }
 
-function randompass {
+function passwdgen {
 	if [ -z $1 ]; then
 		echo "Usage $0 <length of password>"
-		exit -1
+		return -1
 	fi
 
 	strings /dev/urandom | grep -o '[[:alnum:]]' | head -n $1 | tr -d '\n'; echo
