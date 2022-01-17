@@ -4,3 +4,7 @@
 [submodule "sshkeys"]
 	path = sshkeys
 	url = https://github.com/algorythm/sshkeys
+[submodule ".\\PowerlineFonts\\"]
+	branch = master
+[submodule ".\\sshkeys\\"]
+	branch = master
