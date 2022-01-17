@@ -1,10 +1,8 @@
 [submodule "PowerlineFonts"]
 	path = PowerlineFonts
 	url = https://github.com/powerline/fonts
+	branch = master
 [submodule "sshkeys"]
 	path = sshkeys
 	url = https://github.com/algorythm/sshkeys
-[submodule ".\\PowerlineFonts\\"]
-	branch = master
-[submodule ".\\sshkeys\\"]
 	branch = master
